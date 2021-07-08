@@ -38,7 +38,7 @@ jobs:
         export DATE
         if [ "$(git diff-index --quiet HEAD)" ]; then
           echo "cacert.pem needs to be updated" &&
-          git add -a &&
+          git add . &&
           git commit -m "cacert.pem updated $DATE" &&
           git push origin main
         fi
