@@ -36,10 +36,5 @@ jobs:
         git status
         DATE="$(date)"
         export DATE
-        if [ "$(git diff-index --quiet HEAD)" ]; then
-          echo "cacert.pem needs to be updated" &&
-          git add . &&
-          git commit -m "cacert.pem updated $DATE" &&
-          git push origin main
-        fi
+        ( git commit -am "cacert.pem updated $DATE" && git push origin main ) || true
         git status
