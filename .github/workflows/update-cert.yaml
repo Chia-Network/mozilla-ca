@@ -36,5 +36,5 @@ jobs:
         git status
         DATE="$(date)"
         export DATE
-        ( git commit -am "cacert.pem updated $DATE" && git push origin main ) || true
+        ( git commit cacert.pem -m "cacert.pem updated $DATE" && git push origin main ) || true
         git status
