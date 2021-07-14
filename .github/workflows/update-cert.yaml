@@ -32,7 +32,7 @@ jobs:
     - name: Update Mozilla cert.pem Nightly
       if: startsWith(matrix.os, 'ubuntu')
       run: |
-        curl --remote-name https://curl.se/ca/cacert.pem
+        curl --cacert cacert.pem --remote-name https://curl.se/ca/cacert.pem
         git status
         DATE="$(date)"
         export DATE
