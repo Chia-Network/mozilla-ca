@@ -5,7 +5,18 @@ on:
     - cron: "0 11 * * *"
   workflow_dispatch:
 
+permissions:
+  id-token: write
+  contents: read
+  actions: write
+
 jobs:
+  workflow-keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Flip workflow
+        uses: Chia-Network/actions/github/keep-alive@main
+
   build_wheels:
     name: Update Mozilla cert.pem Nightly
     runs-on: ${{ matrix.os }}
